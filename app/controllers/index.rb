@@ -10,5 +10,11 @@ post '/grandma' do
   else
     @grandma = "NO NOT SINCE THE WAR!!!"
   end
-  erb :index :layout => false 
+#   erb :index, :layout => !request.xhr? 
+# end
+  if request.xhr?
+    erb :_grandma, :layout => false
+  else
+    erb :index
+  end
 end

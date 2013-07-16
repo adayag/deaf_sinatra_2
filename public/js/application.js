@@ -1,20 +1,20 @@
 $(document).ready(function() {
   // alert("loading doc");
-  $('.talk').submit( function(e) {
+  $('body').on('submit', '.talk', function(e) {
     e.preventDefault();
     // alert("here");
     var url = $(this).attr('action');
     //Using serialize
     var data = $(this).serialize();
-    var posting = $.post(url, data, function(response){
+    console.log(data);
+    $.post(url, data, function(response){
+      // console.log("Hello1");
       console.log(response);
-     $().html(response);
+     $('#response').html(response);
     });
-    // posting.done(function(server_response) {
-    //   var content = $(server_response).find( '#response' );
-    //   $( '#response' ).replaceWith( content );
-    // });
-  });
+
+    // console.log("Hello2");
+   });
 });
 
 
